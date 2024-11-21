@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./TodoAdder.module.css";
 import { useState } from "react";
+import { MdNoteAdd } from "react-icons/md";
 function TodoAdder({ addList }) {
   const [name, changeName] = useState("");
   const [date, changeDate] = useState("");
@@ -38,7 +39,7 @@ function TodoAdder({ addList }) {
           className={`btn btn-success ${css.MyButton}`}
           onClick={handleClick}
         >
-          Add
+          <MdNoteAdd />
         </button>
       </div>
     </div>

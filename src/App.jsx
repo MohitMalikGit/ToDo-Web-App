@@ -10,12 +10,13 @@ function App() {
   const [list, setList] = useState([]);
 
   const addList = (name, date) => {
-    setList(
-      list.concat({
-        TaskName: `${name}`,
-        TaskDate: `${date}`,
-      })
-    );
+    if (name.length != 0 && date.length != 0)
+      setList(
+        list.concat({
+          TaskName: `${name}`,
+          TaskDate: `${date}`,
+        })
+      );
   };
 
   const deleteList = (itemName) => {

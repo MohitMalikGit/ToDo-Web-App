@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./Item.module.css";
+import { AiFillDelete } from "react-icons/ai";
 function Item(props) {
   return (
     <div className="row">
@@ -11,7 +12,7 @@ function Item(props) {
           className={`btn btn-danger ${css.MyButton}`}
           onClick={() => props.deleteList(props.TaskName)}
         >
-          Delete
+          <AiFillDelete />
         </button>
       </div>
     </div>
