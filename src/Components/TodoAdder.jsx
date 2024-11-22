@@ -1,37 +1,26 @@
 import React from "react";
 import css from "./TodoAdder.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MdNoteAdd } from "react-icons/md";
 function TodoAdder({ addList }) {
   const [name, changeName] = useState("");
   const [date, changeDate] = useState("");
-
-  const handelName = (event) => {
-    changeName(event.target.value);
-  };
-
-  const handelDate = (event) => {
-    changeDate(event.target.value);
-  };
+  const nameRef = useRef("");
+  const dateRef = useRef("");
 
   const handleClick = () => {
-    addList(name, date);
-    changeDate("");
-    changeName("");
+    addList(nameRef.current.value, dateRef.current.value);
+    nameRef.current.value = "";
+    dateRef.current.value = "";
   };
 
   return (
     <div className="row">
       <div className="col-4">
-        <input
-          type="text"
-          placeholder="Enter Todo Here"
-          onChange={handelName}
-          value={name}
-        />
+        <input type="text" placeholder="Enter Todo Here" ref={nameRef} />
       </div>
       <div className="col-4">
-        <input type="Date" value={date} onChange={handelDate} />
+        <input type="Date" ref={dateRef} />
       </div>
       <div className="col-4 text-start">
         <button
