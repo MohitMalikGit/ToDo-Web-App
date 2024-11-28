@@ -1,18 +1,12 @@
 import React from "react";
 import css from "./TodoAdder.module.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { MdNoteAdd } from "react-icons/md";
-function TodoAdder({ addList }) {
-  const [name, changeName] = useState("");
-  const [date, changeDate] = useState("");
+import TodoContext from "../store/to-do-app-store";
+function TodoAdder() {
+  const { addNewItem } = useContext(TodoContext);
   const nameRef = useRef("");
   const dateRef = useRef("");
-
-  const handleClick = () => {
-    addList(nameRef.current.value, dateRef.current.value);
-    nameRef.current.value = "";
-    dateRef.current.value = "";
-  };
 
   return (
     <div className="row">
@@ -26,7 +20,9 @@ function TodoAdder({ addList }) {
         <button
           type="button"
           className={`btn btn-success ${css.MyButton}`}
-          onClick={handleClick}
+          onClick={() =>
+            addNewItem(nameRef.current.value, dateRef.current.value)
+          }
         >
           <MdNoteAdd />
         </button>

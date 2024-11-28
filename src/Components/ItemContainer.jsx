@@ -1,15 +1,16 @@
-import React from "react";
+import { React, useContext } from "react";
 import Item from "./item";
+import TodoContext from "../store/to-do-app-store";
 
-function ItemContainer({ List, deleteList }) {
+function ItemContainer() {
+  const { todoItems } = useContext(TodoContext);
   return (
     <div className="item-container">
-      {List.map((ob) => (
+      {todoItems.map((ob) => (
         <Item
           key={ob.TaskName}
           TaskName={ob.TaskName}
           TaskDate={ob.TaskDate}
-          deleteList={deleteList}
         ></Item>
       ))}
     </div>

@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import TodoContext from "../store/to-do-app-store";
 const WelcomeMessage = () => {
-  return <p> Enjoy your day!</p>;
+  const { todoItems } = useContext(TodoContext);
+  return todoItems.length == 0 && <p> Enjoy your day!</p>;
 };
 
 export default WelcomeMessage;

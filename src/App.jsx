@@ -5,6 +5,7 @@ import "./App.css";
 import ItemContainer from "./Components/ItemContainer";
 import { useState } from "react";
 import WelcomeMessage from "./Components/WelcomeMessage";
+import TodoContext from "./store/to-do-app-store";
 
 function App() {
   const [list, setList] = useState([]);
@@ -26,14 +27,18 @@ function App() {
 
   return (
     <>
-      <AppName> </AppName>
-      <TodoAdder addList={addList}></TodoAdder>
-      {list.length == 0 ? <WelcomeMessage></WelcomeMessage> : <></>}{" "}
-      <ItemContainer
-        List={list}
-        SetList={setList}
-        deleteList={deleteList}
-      ></ItemContainer>
+      <TodoContext.Provider
+        value={{
+          todoItems: list,
+          addNewItem: addList,
+          deleteItem: deleteList,
+        }}
+      >
+        <AppName> </AppName>
+        <TodoAdder />
+        <WelcomeMessage />
+        <ItemContainer />
+      </TodoContext.Provider>
     </>
   );
 }
