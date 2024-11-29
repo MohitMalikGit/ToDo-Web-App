@@ -2,7 +2,7 @@ import React from "react";
 import css from "./TodoAdder.module.css";
 import { useState, useRef, useContext } from "react";
 import { MdNoteAdd } from "react-icons/md";
-import TodoContext from "../store/to-do-app-store";
+import { TodoContext } from "../store/to-do-app-store";
 function TodoAdder() {
   const { addNewItem } = useContext(TodoContext);
   const nameRef = useRef("");

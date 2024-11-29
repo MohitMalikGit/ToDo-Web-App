@@ -1,7 +1,7 @@
 import { React, useContext } from "react";
 import css from "./Item.module.css";
 import { AiFillDelete } from "react-icons/ai";
-import TodoContext from "../store/to-do-app-store";
+import { TodoContext } from "../store/to-do-app-store";
 function Item(props) {
   const { deleteItem } = useContext(TodoContext);
   return (

@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import Item from "./item";
-import TodoContext from "../store/to-do-app-store";
+import { TodoContext } from "../store/to-do-app-store";
 
 function ItemContainer() {
   const { todoItems } = useContext(TodoContext);
